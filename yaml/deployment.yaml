@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: jenkins
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: master
+    spec:
+      containers:
+      - name: master
+        image: jenkinsci/jenkins:2.84
+        ports:
+        - containerPort: 8080
+        - containerPort: 50000
+        env:
+        - name: JENKINS_OPTS
+          valueFrom:
+            secretKeyRef:
+              name: jenkins
+              key: options
+        volumeMounts:
+        - mountPath: /var/jenkins_home
+          name: jenkins-home
+        #readinessProbe:
+        #  httpGet:
+        #    path: /
+        #    port: 8080
+        #  periodSeconds: 10
+        #  initialDelaySeconds: 15
+        #  timeoutSeconds: 5
+        #  successThreshold: 2
+        #  failureThreshold: 5
+      volumes:
+      - name: jenkins-home
+        gcePersistentDisk:
+          pdName: jenkins-home
+          fsType: ext4
+          partition: 1
