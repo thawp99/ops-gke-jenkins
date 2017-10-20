@@ -8,7 +8,6 @@ clusterName=${testName}-cluster
 domainName=${testName}.ois.lzy.sh
 cleanup=true
 
-
 # set environment
 source setEnv.sh
 
