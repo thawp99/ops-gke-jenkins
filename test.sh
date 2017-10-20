@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 # test script setup
+testName=jenkins-test
 project=ops-iac-sb
 zone=us-east1-b
-clusterName=jenkins-test-cluster
-domainName=ci-test.ois.lzy.sh
+clusterName=${testName}-cluster
+domainName=${testName}.ois.lzy.sh
 cleanup=true
 
 
