@@ -8,10 +8,10 @@ spec:
   template:
     metadata:
       labels:
-        app: master
+        app: jenkins-master
     spec:
       containers:
-      - name: master
+      - name: jenkins-master
         image: jenkinsci/jenkins:2.84
         ports:
         - containerPort: 8080
@@ -22,6 +22,8 @@ spec:
             secretKeyRef:
               name: jenkins
               key: options
+        - name: JAVA_OPTS
+          value: -Dhudson.model.DirectoryBrowserSupport.CSP="sandbox allow-same-origin allow-scripts; default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; script-src 'self' 'unsafe-inline'; font-src 'self'"
         volumeMounts:
         - mountPath: /var/jenkins_home
           name: jenkins-home
