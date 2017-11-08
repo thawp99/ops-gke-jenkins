@@ -20,6 +20,7 @@ ${cmd}
 
 # test createDisk.sh
 cmd="./createDisk.sh"
+echoCyan "Running test on: ${cmd}"
 ${cmd}
 results
 
@@ -30,21 +31,21 @@ results
 
 # cleanup
 if [ "${cleanup}" = true ]; then
-	cmd="kubectl delete ns jenkins"
-	echoBlue "Running cleanup command: ${cmd}"
+        cmd="kubectl delete ns jenkins"
+        echoBlue "Running cleanup command: ${cmd}"
         ${cmd}
-	cmd="gcloud container clusters delete ${clusterName}"
-	echoBlue "Running cleanup command: ${cmd}"
+        cmd="${gcloud} container clusters delete ${clusterName}"
+        echoBlue "Running cleanup command: ${cmd}"
         ${cmd}
-	cmd="gcloud compute images delete jenkins-home-image"
-	echoBlue "Running cleanup command: ${cmd}"
+        cmd="${gcloud} compute images delete jenkins-home-image"
+        echoBlue "Running cleanup command: ${cmd}"
         ${cmd}
-	cmd="gcloud compute disks delete jenkins-home"
-	echoBlue "Running cleanup command: ${cmd}"
+        cmd="${gcloud} compute disks delete jenkins-home"
+        echoBlue "Running cleanup command: ${cmd}"
         ${cmd}
 fi
 
-# fail overall script if any tests fail
+# fail overall script if any of the individual results fail
 if [ "${fail}" = true ]; then
         exit 1
 fi
