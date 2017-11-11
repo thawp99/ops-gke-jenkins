@@ -12,37 +12,37 @@ done
 # depends
 cmd="ops-common/gcloud/setConfig.sh -p ${project} -z ${zone}"
 echoBlue "Running dependency: ${cmd}"
-${cmd}
+${cmd} 2>&1
 
 cmd="ops-common/gcloud/createK8sCluster.sh -c ${clusterName}"
 echoBlue "Running dependency: ${cmd}"
-${cmd}
+${cmd} 2>&1
 
 # test createDisk.sh
 cmd="./createDisk.sh"
 echoCyan "Running test on: ${cmd}"
-${cmd}
+${cmd} 2>&1
 results
 
 # test start.sh
 cmd="ops-common/kubectl/start.sh -a jenkins -d ${domainName}"
-${cmd}
+${cmd} 2>&1
 results
 
 # cleanup
 if [ "${cleanup}" = true ]; then
         cmd="kubectl delete ns jenkins"
         echoBlue "Running cleanup command: ${cmd}"
-        ${cmd}
+        ${cmd} 2>&1
         cmd="${gcloud} container clusters delete ${clusterName}"
         echoBlue "Running cleanup command: ${cmd}"
-        ${cmd}
+        ${cmd} 2>&1
         cmd="${gcloud} compute images delete jenkins-home-image"
         echoBlue "Running cleanup command: ${cmd}"
-        ${cmd}
+        ${cmd} 2>&1
         cmd="${gcloud} compute disks delete jenkins-home"
         echoBlue "Running cleanup command: ${cmd}"
-        ${cmd}
+        ${cmd} 2>&1
 fi
 
 # fail overall script if any of the individual results fail
