@@ -26,6 +26,7 @@ results
 
 # test start.sh
 cmd="ops-common/kubectl/start.sh -a jenkins -d ${domainName}"
+echoCyan "Running test on: ${cmd}"
 ${cmd} 2>&1
 results
 
