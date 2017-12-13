@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: jenkins-master
-        image: jenkinsci/jenkins:2.90
+        image: jenkinsci/jenkins:2.93
         ports:
         - containerPort: 8080
         - containerPort: 50000
