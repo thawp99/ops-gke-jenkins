@@ -12,13 +12,14 @@ Domain registrar (..any is fine, I use Google):
 [Google Domains *BETA*](https://domains.google/#/)
 
 ## Setup
+Click this:
 [![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/lzysh/ops-IaC.git&page=shell)
 ```none
 $ git submodule update --remote --recursive --init
 ```
 
 [Create a Google Cloud Platform project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
-Your user will need "Project Creator" IAM role.
+(Your user will need "Project Creator" IAM role.)
 ```none
 $ gcloud projects create my-new-wizzy-project --name="[Wizzy Project]"
 $ gcloud config set project my-new-wizzy-project
@@ -79,6 +80,3 @@ $ ./build.sh
 Ingress on GCP takes some time could be up to 10/15 minutes. You also have DNS records updating and kube-lego generating ssl certificates once that is done. Go have some coffee, come back, build a pipeline and write some code.
 
 To cleanup delete the project you created or look at the test.sh script for cleanup commands.
-
-## Authors
-* **Brett Curtis**
