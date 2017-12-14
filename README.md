@@ -13,6 +13,7 @@ Domain registrar (..any is fine, I use Google):
 
 ## Setup
 Click this:
+
 [![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/lzysh/ops-IaC.git&page=shell)
 ```none
 $ git submodule update --remote --recursive --init
