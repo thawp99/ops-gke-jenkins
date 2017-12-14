@@ -22,7 +22,7 @@ $ git submodule update --remote --recursive --init
 [Create a Google Cloud Platform project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project)
 (Your user will need "Project Creator" IAM role.)
 ```none
-$ gcloud projects create my-new-wizzy-project --name="[Wizzy Project]"
+$ gcloud projects create my-new-wizzy-project --name="Wizzy Project"
 $ gcloud config set project my-new-wizzy-project
 $ gcloud alpha billing projects link my-new-wizzy-project --billing-account=[Your Billing ID]
 ```
