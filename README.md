@@ -51,7 +51,7 @@ upsourceDomain=cr.${dnsZone}
 ## If you're building a production environment:
 ```none
 # this option is for using the production Let's Encrypt API and sets some different GKE cluster options
-production=false
+production=true
 ```
 ## Set Let's Encrypt email:
 ```none
