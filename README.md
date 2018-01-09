@@ -31,7 +31,7 @@ folderId=
 ```
 ## Set your DNS zone:
 ```none
-dnsZone=test.lzy.sh
+dnsZone=domain.com
 ```
 ## Disable other applications
 ```none
@@ -56,7 +56,7 @@ production=true
 ## Set Let's Encrypt email:
 ```none
 # email for Let's Encrypt SSL certificate notifications
-legoEmail=kube-ssl@lzy.sh
+legoEmail=kube-ssl@domain.com
 ```
 ## Run the build:
 ```none
